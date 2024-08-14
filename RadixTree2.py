@@ -6,7 +6,7 @@ Created on Tue Aug 13 13:17:40 2024
 @author: simonsprouse
 """
 
-from collections import deque
+
 
 class Node:
     def __init__(self, key, page):
@@ -87,6 +87,79 @@ def insertNode(root, key, page):
     
     ## If no prefix match, add as a direct descendant
     root.edges[key] = Node(key, page)
+    
+    
+    
+    
+    
+    
+def search(root, key):
+    
+    if not key: 
+        return None
+    
+    while key: 
+        
+        found = False
+        
+        for existing_key, child_node in root.edges.items():
+
+            match = comparePrefix(existing_key, key)
+            
+            if match:
+                
+                if match == key:
+                    
+                    return child_node.page
+                
+                else: 
+                    
+                    key = key[len(match):]
+                    root = child_node
+                    found = True
+                    break
+                
+                
+        if not found:
+            
+            return None
+                    
+    
+def deletePage(root, key):
+    
+    if not key: 
+        return False
+    
+    while key: 
+        
+        found = False
+        
+        for existing_key, child_node in root.edges.items():
+
+            match = comparePrefix(existing_key, key)
+            
+            if match:
+                
+                if match == key:
+                    
+                    child_node.page = ""
+                    return True
+                
+                else: 
+                    
+                    key = key[len(match):]
+                    root = child_node
+                    found = True
+                    break
+                
+                
+        if not found:
+            
+            return False
+    
+    
+    
+    
 
 
 root = Node("", "")
@@ -102,3 +175,6 @@ insertNode(root, "benson", "benson.html")
 insertNode(root, "bent", "bent.html")
 
 printTree(root)
+
+
+
