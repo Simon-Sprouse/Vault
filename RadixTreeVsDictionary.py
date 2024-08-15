@@ -53,7 +53,7 @@ print("Generating Datset")
 timer.start()
 
 
-generateData(100000)
+generateData(100)
 
 
 timer.stop()

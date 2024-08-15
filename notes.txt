@@ -36,3 +36,15 @@ Then I will declare a winner or change the dataset.
 Right ok so the Map is way faster when it comes to simple key pair search. 
 
 Maybe the tree is faster if I do a prefix regex quantity remaining search instead. 
+
+Todo:
+
+    - modify the Node to store the prefix children number
+    - build radix tree prefix search function
+    - test the prefix search on map (timed)
+    - test the prefix search on radix tree (timed)
+    
+    
+    
+    
+    
